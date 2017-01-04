@@ -1,0 +1,117 @@
+<html>
+<head>
+    <h1>Add and Remove </h1>
+    <Title>Task-1</title>
+    <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+    </script>
+    <script>
+
+
+       
+        $(document).ready(function() 
+        {
+        
+
+         
+        function removeFunction()
+        {
+
+            $(this).parent().remove();
+           
+        }
+       
+      
+
+        function addFunction()
+        {
+          
+            $("#form1").append("<div id='textbox-containers'>Name :<input type='text' class='Text-1' name='name'/> <button type='button' class='add-button'>Add</button> <button type='button' class='remove-button'>Remove</button></div>");
+            //$(".remove-button").off('click');
+            $(".add-button").off('click');
+            $(".remove-button").click(removeFunction);
+            $(".add-button").click(addFunction);
+        }
+
+          
+           $(".add-button").click(addFunction);
+          
+
+        var Json={};
+        $(".submit-button").click(function()
+        {
+               
+            var x = $("form").serializeArray();
+
+           // var Json=JSON.stringify(x);
+            //var Json1=JSON.parse(Json);
+           // alert(Json1.x.name);
+           // document.write(document.getElementById("MyJson").innerHTML = Json);
+            $(".table1").empty();  
+            $.each(x, function(i,field)
+            {
+            
+            
+            $(".table1").append("<tr><td>"+ field.value +"</td</tr>"); 
+            {
+
+            
+        }
+            //  document.write(Json1);
+        });
+        });
+
+        
+       
+             
+        
+       
+            
+
+
+        });
+        </script>  
+
+         
+         </head>
+
+         <body>
+         
+         
+         
+        
+        <div id="textbox-containers" >
+
+       
+    
+        
+        <form action="" id="form1">
+
+            
+         Name : <input type="text" class="text-1" name="name" >
+             
+                     
+         <button type="button" class="add-button" onclick="addFunction()" >Add</button>
+         
+         
+         </div>
+         
+         </form>
+       
+         <div align="left">
+         <button type="button" class="submit-button" value ="Reset" onclick="submitFunction()" align:"right" &nbps> Submit</button>
+         </div>
+        
+        <table border="2" class="table1">
+
+
+        </table>
+
+
+         
+         <div id="Finalresult" >
+         </div>
+         
+         <p id="MyJson">
+         </p>
+         </body>
+         </html>
